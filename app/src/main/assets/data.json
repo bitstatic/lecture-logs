@@ -1,0 +1,29 @@
+{
+  "2nd Year" : {
+    "B1" : {
+      "Monday" : {
+        "09:00 AM" : "APS LAB",
+        "11:00 AM" : "CN",
+        "12:00 AM" : "AI",
+        "01:00 PM" : "AI T"
+      },
+      "Tuesday" : {
+        "09:00 AM" : "OS",
+        "10:00 AM" : "APS",
+        "11:00 AM" : "APS T",
+        "12:00 PM" : "AI",
+        "02:00 PM" : "MAD LAB"
+
+      },
+      "Thursday" : {
+        "09:00 AM" : "CN LAB",
+        "11:00 AM" : "CN",
+        "12:00 AM" : "AI",
+        "03:00 PM" : "CDM"
+      },
+      "Friday" : {
+
+      }
+    }
+  }
+}
