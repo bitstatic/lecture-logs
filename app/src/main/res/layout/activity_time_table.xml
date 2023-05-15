@@ -93,7 +93,6 @@
                 android:text="Monday"
                 android:textSize="24sp"
                 android:padding="5dp"
-                android:background="@drawable/rounded_corners"/>
 
             <Space
                 android:layout_width="20dp"
