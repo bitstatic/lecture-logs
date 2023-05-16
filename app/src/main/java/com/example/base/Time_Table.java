@@ -19,15 +19,120 @@ import android.widget.TextView;
 public class Time_Table extends AppCompatActivity {
     //  data[year][day][batch][time]
     String[][][][] data = {
-            {{{}}},
             {
+//                  Year 1
                     {
-                            {"AI", null, "APS", "CDM", null, "OS", null, null},
-                            {"CN", "AI", "AI Lab", null, "OS", null, null, null}
+
+//                          Monday
+                            //B1
+                            {"ES", "ESB", null,"ES TUT","ES LAB","ES LAB",null,null},
+                            //B2
+                            {"PHY LAB", "PHY LAB", "PCP", "SDF","PHY",null,null,null},
+                            //B3
+                            {"WORKSHOP LAB", "WORKSHOP LAB" , null,"DM","PHY","OOP",null,null}
                     },
                     {
-                            {"CN", "AI", "AI Lab", null, "OS", null, null, null},
-                            {"AI", null, "APS", "CDM", null, "OS", null, null}
+//                          Tuesday
+                            //B1
+                            {"WORKSHOP LAB", "WORKSHOP LAB" , null,"DM","PHY","OOP",null,null},
+                            //B2
+                            {"OOPS LAB", "OOPS LAB" ,  null, "DM", "PHY LAB" ,"PHY LAB" , "OOPS", null},
+                            //B3
+                            {"ES", "LSEC" , "LSEC LAB", "LSEC LAB", "DM", "OOP", null, null},
+                    },
+                    {
+//                          Wednesday
+                            //B1
+                            {"ES", "ESB" , "DM", null,"PHY LAB","PHY LAB","WORKSHOP",null},
+                            //B2
+                            {"WORKSHOP LAB", "WORKSHOP LAB" , null,"DM","PHY","OOP",null,null},
+                            //B3
+                            {"OOPS LAB", "OOPS LAB" ,  null, "DM", "PHY LAB" , "PHY LAB", "OOPS", null}
+                    },
+                    {
+//                          Thursday
+                            //B1
+                            {"OOPS LAB", "OOPS LAB" ,  null, "DM", "PHY LAB" ,"PHY LAB" , "OOPS", null},
+                            //B2
+                            {"ES", "LSEC" , "LSEC LAB", "LSEC LAB", "DM", "OOP", null, null},
+                            //B3
+                            {"WORKSHOP LAB", "WORKSHOP LAB" , null,"DM","PHY","OOP",null,null}
+                    },
+                    {
+//                          Friday
+                            //B1
+                            {"ES", "LSEC" , "LSEC LAB", "LSEC LAB", "DM", "OOP", null, null},
+                            //B2
+                            {"OOPS LAB", "OOPS LAB" ,  null, "DM", "PHY LAB" ,"PHY LAB", "OOPS", null},
+                            //B3
+                            {}
+                    },
+                    {
+//                          Saturday
+                            //B1
+                            {"OOP", "PHY TUT", "PHY", null, null, null, null, null},
+                            //B2
+                            {"PHY", "OOP", "PHY TUT", null, null, null, null, null},
+                            //B3
+                            {"LSEC", "OOP TUT", "ES", null, null, null, null, null}
+                    }
+            },
+            {
+//                  YEAR 2
+                    {
+//                          MONDAY
+                            // B1
+                            {"APS LAB","APS LAB", "CN", "AI", "AI TUT", null, null, null},
+                            // B2
+                            {"OS", "APS", "APS TUT", "AI", "MAD LAB", "MAD LAB", null, null},
+                            //B3
+                            {"CN LAB", "CN LAB", "CN", "AI", "CDM", null, null,null}
+                    },
+                    {
+//                          Tuesday
+                            // B1
+                            {"OS", "APS", "APS TUT", "AI", "MAD LAB", "MAD LAB", null, null},
+                            // B2
+                            {"APS LAB","APS LAB", "CN", "AI", "AI TUT", null, null, null},
+                            //B3
+                            {"CN LAB", "CN LAB", "CN", "AI", "CDM",  null, null,null}
+                    },
+                    {
+//                          Wednesday
+                            // B1
+                            {"CN LAB", "CN", "AI", "CDM", null, null, null,null},
+                            // B2
+                            {"OS", "APS", "APS TUT", "AI", "MAD LAB", null, null, null},
+                            //B3
+                            {"APS LAB",null, "CN", "AI", "AI TUT", null, null, null},
+                    },
+                    {
+//                          Thursday
+                            // B1
+                            {"OS","APS", "CDM", null, null, null, null, null},
+                            // B2
+                            {"OS", "APS", "APS TUT", "AI", "MAD LAB", "MAD LAB", null, null},
+                            //B3
+                            {"OS", "APS", "AI LAB", "AI LAB", null, null, null, null},
+                    },
+                    {
+//                          Friday
+                            // B1
+                            {"CN","MAD", "OS LAB", "OS LAB", "CDM", null, null, null},
+                            // B2
+                            {"CN LAB" , "CN LAB" , "CN", "AI", "CDM", null, null,null},
+                            //B3
+                            {"OS", "APS", "AI LAB", "AI LAB", null, null, null, null},
+                    },
+                    {
+//                          Saturday
+                            // B1
+                            {"OS", "APS", "AI LAB", "AI LAB", null, null, null, null},
+                            // B2
+                            {"CN","MAD", "OS LAB", "OS LAB", "CDM", null, null, null},
+                            //B3
+                            {"CN LAB", "CN LAB", "CN", "AI", "CDM", null, null,null}
+
                     }
             }
     };
