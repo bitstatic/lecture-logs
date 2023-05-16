@@ -8,7 +8,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.HorizontalScrollView;
@@ -17,22 +16,18 @@ import android.widget.Scroller;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.json.JSONObject;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
-
 public class Time_Table extends AppCompatActivity {
-
-    public void show(View view){
-
-    }
+    //  data[year][day][batch][time]
+    String[][][][] data = {
+            {{{}}},
+            {
+                    {
+                            {"AI", null, "APS", "CDM", null, "OS", null, null},
+                            {"CN", "AI", "AI Lab", null, "OS", null, null, null}
+                    }
+            }
+    };
+    int day = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,36 +57,174 @@ public class Time_Table extends AppCompatActivity {
         ArrayAdapter<String> specAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options);
         specDropdown.setAdapter(specAdapter);
 
-        String weekDay;
-        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.getDefault());
+//        String weekDay;
+//        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.getDefault());
+//
+//        Calendar calendar = Calendar.getInstance();
+//        weekDay = dayFormat.format(calendar.getTime());
+////        System.out.println(weekDay);
+//
+//        LinearLayout weekdayLayout = findViewById(R.id.weekdays);
+//        for (int i = 0; i < weekdayLayout.getChildCount(); i += 2) {
+//            TextView day = (TextView) weekdayLayout.getChildAt(i);
+//            String brooo = day.getText().toString();
+//            System.out.println(brooo);
+//            if (brooo.equals(weekDay))
+//                day.setBackground(ContextCompat.getDrawable(this, R.drawable.rounded_corners));
+//        }
 
-        Calendar calendar = Calendar.getInstance();
-        weekDay = dayFormat.format(calendar.getTime());
-//        System.out.println(weekDay);
 
-        LinearLayout weekdayLayout = findViewById(R.id.weekdays);
-        for(int i = 0; i < weekdayLayout.getChildCount(); i+=2){
-            TextView day = (TextView) weekdayLayout.getChildAt(i);
-            String brooo = day.getText().toString();
-            System.out.println(brooo);
-            if(brooo.equals(weekDay)) day.setBackground(ContextCompat.getDrawable(this,R.drawable.rounded_corners));
+//        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LinearLayout ltime = findViewById(R.id.lineartime);
+//
+//        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LinearLayout lclass = findViewById(R.id.linearclass);
+//
+//        List<List<Pair<String, String>>> data;
+
+
+    }
+
+    public void setData(View view) {
+        Spinner yearSpinner = (Spinner) findViewById(R.id.year);
+        Spinner batchSpinner = (Spinner) findViewById(R.id.batch);
+        Spinner specSpinner = (Spinner) findViewById(R.id.spec);
+        String year = yearSpinner.getSelectedItem().toString();
+        String batch = batchSpinner.getSelectedItem().toString();
+        String spec = specSpinner.getSelectedItem().toString();
+        int y = 0, b = 0;
+        boolean sp;
+        if (year == "1st Year") y = 0;
+        else if (year == "2nd Year") y = 1;
+        else if (year == "3rd Year") y = 2;
+        else if (year == "4th Year") y = 3;
+
+        if (batch == "B1") b = 0;
+        else if (batch == "B2") b = 1;
+        else if (batch == "B3") b = 2;
+
+        if (spec == "No Specialization") sp = false;
+        else sp = true;
+
+        TextView t9 = (TextView) findViewById(R.id.time_9);
+        t9.setText(data[y][day][b][0]);
+        TextView t10 = (TextView) findViewById(R.id.time_10);
+        TextView t11 = (TextView) findViewById(R.id.time_11);
+        TextView t12 = (TextView) findViewById(R.id.time_12);
+        TextView t2 = (TextView) findViewById(R.id.time_2);
+        TextView t3 = (TextView) findViewById(R.id.time_3);
+        TextView t4 = (TextView) findViewById(R.id.time_4);
+        TextView t5 = (TextView) findViewById(R.id.time_5);
+
+        for (int i = 0; i < 8; i++) {
+            switch (i) {
+                case (0):
+                    t9.setVisibility(View.VISIBLE);
+                    break;
+                case (1):
+                    t10.setVisibility(View.VISIBLE);
+                    break;
+                case (2):
+                    t11.setVisibility(View.VISIBLE);
+                    break;
+                case (3):
+                    t12.setVisibility(View.VISIBLE);
+                    break;
+                case (4):
+                    t2.setVisibility(View.VISIBLE);
+                    break;
+                case (5):
+                    t3.setVisibility(View.VISIBLE);
+                    break;
+                case (6):
+                    t4.setVisibility(View.VISIBLE);
+                    break;
+                case (7):
+                    t5.setVisibility(View.VISIBLE);
+                    break;
+
+            }
         }
+        for (int i = 0; i < 8; i++) {
+            String s = data[y][day][b][i];
+            if (s != null) {
+                switch (i) {
+                    case (0):
+                        t9.setText(data[y][day][b][i]);
+                        break;
+                    case (1):
+                        t10.setText(data[y][day][b][i]);
+                        break;
+                    case (2):
+                        t11.setText(data[y][day][b][i]);
+                        break;
+                    case (3):
+                        t12.setText(data[y][day][b][i]);
+                        break;
+                    case (4):
+                        t2.setText(data[y][day][b][i]);
+                        break;
+                    case (5):
+                        t3.setText(data[y][day][b][i]);
+                        break;
+                    case (6):
+                        t4.setText(data[y][day][b][i]);
+                        break;
+                    case (7):
+                        t5.setText(data[y][day][b][i]);
+                        break;
+                }
 
+            } else {
+                switch (i) {
+                    case (0):
+                        t9.setVisibility(View.INVISIBLE);
+                        break;
+                    case (1):
+                        t10.setVisibility(View.INVISIBLE);
+                        break;
+                    case (2):
+                        t11.setVisibility(View.INVISIBLE);
+                        break;
+                    case (3):
+                        t12.setVisibility(View.INVISIBLE);
+                        break;
+                    case (4):
+                        t2.setVisibility(View.INVISIBLE);
+                        break;
+                    case (5):
+                        t3.setVisibility(View.INVISIBLE);
+                        break;
+                    case (6):
+                        t4.setVisibility(View.INVISIBLE);
+                        break;
+                    case (7):
+                        t5.setVisibility(View.INVISIBLE);
+                        break;
+                }
+            }
+        }
+    }
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LinearLayout ltime = findViewById(R.id.lineartime);
+    public void setMon() {
+        this.day = 0;
+    }
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LinearLayout lclass = findViewById(R.id.linearclass);
+    public void setTue() {
+        this.day = 1;
+    }
 
-        List<List<Pair<String, String>>> data;
+    public void setWed() {
+        this.day = 2;
+    }
 
+    public void setThur() {
+        this.day = 3;
+    }
 
+    public void setFri() {
+        this.day = 4;
+    }
 
-
-
-
-
-
-
-
+    public void setSat() {
+        this.day = 5;
     }
 }
