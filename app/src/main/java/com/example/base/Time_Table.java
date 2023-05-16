@@ -24,10 +24,14 @@ public class Time_Table extends AppCompatActivity {
                     {
                             {"AI", null, "APS", "CDM", null, "OS", null, null},
                             {"CN", "AI", "AI Lab", null, "OS", null, null, null}
+                    },
+                    {
+                            {"CN", "AI", "AI Lab", null, "OS", null, null, null},
+                            {"AI", null, "APS", "CDM", null, "OS", null, null}
                     }
             }
     };
-    int day = 0;
+    int day=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,11 @@ public class Time_Table extends AppCompatActivity {
         String[] batches = new String[]{"B1", "B2", "B3"};
         ArrayAdapter<String> batchAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, batches);
         batchDropdown.setAdapter(batchAdapter);
+
+        Spinner dayDropdown = findViewById(R.id.day);
+        String[] days = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        ArrayAdapter<String> dayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, days);
+        dayDropdown.setAdapter(dayAdapter);
 
 //        specialization select
         Spinner specDropdown = findViewById(R.id.spec);
@@ -87,10 +96,12 @@ public class Time_Table extends AppCompatActivity {
         Spinner yearSpinner = (Spinner) findViewById(R.id.year);
         Spinner batchSpinner = (Spinner) findViewById(R.id.batch);
         Spinner specSpinner = (Spinner) findViewById(R.id.spec);
+        Spinner daySpinner = (Spinner) findViewById(R.id.day);
         String year = yearSpinner.getSelectedItem().toString();
         String batch = batchSpinner.getSelectedItem().toString();
         String spec = specSpinner.getSelectedItem().toString();
-        int y = 0, b = 0;
+        String weekDay = daySpinner.getSelectedItem().toString();
+        int y = 0, b = 0, day=0;
         boolean sp;
         if (year == "1st Year") y = 0;
         else if (year == "2nd Year") y = 1;
@@ -100,6 +111,13 @@ public class Time_Table extends AppCompatActivity {
         if (batch == "B1") b = 0;
         else if (batch == "B2") b = 1;
         else if (batch == "B3") b = 2;
+
+        if (weekDay=="Monday") day=0;
+        else if (weekDay=="Tuesday") day=1;
+        else if (weekDay=="Wednesday") day=2;
+        else if (weekDay=="Thursday") day=3;
+        else if (weekDay=="Friday") day=4;
+        else if (weekDay=="Saturday") day=5;
 
         if (spec == "No Specialization") sp = false;
         else sp = true;
@@ -202,29 +220,5 @@ public class Time_Table extends AppCompatActivity {
                 }
             }
         }
-    }
-
-    public void setMon() {
-        this.day = 0;
-    }
-
-    public void setTue() {
-        this.day = 1;
-    }
-
-    public void setWed() {
-        this.day = 2;
-    }
-
-    public void setThur() {
-        this.day = 3;
-    }
-
-    public void setFri() {
-        this.day = 4;
-    }
-
-    public void setSat() {
-        this.day = 5;
     }
 }
