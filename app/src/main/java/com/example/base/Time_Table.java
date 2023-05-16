@@ -151,7 +151,7 @@ public class Time_Table extends AppCompatActivity {
 
 //        year select
         Spinner yearDropdown = findViewById(R.id.year);
-        String[] years = new String[]{"1st Year", "2nd Year", "3rd Year", "4th Year"};
+        String[] years = new String[]{"1st Year", "2nd Year"}; //, "3rd Year", "4th Year"
         ArrayAdapter<String> yearAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, years);
         yearDropdown.setAdapter(yearAdapter);
 
