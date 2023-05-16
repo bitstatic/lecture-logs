@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -171,6 +172,7 @@ public class Time_Table extends AppCompatActivity {
         ArrayAdapter<String> specAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options);
         specDropdown.setAdapter(specAdapter);
 
+        setData(null);
 //        String weekDay;
 //        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.getDefault());
 //
@@ -241,27 +243,35 @@ public class Time_Table extends AppCompatActivity {
             switch (i) {
                 case (0):
                     t9.setVisibility(View.VISIBLE);
+                    t9.setBackgroundColor(Color.parseColor("#94B27C"));
                     break;
                 case (1):
                     t10.setVisibility(View.VISIBLE);
+                    t10.setBackgroundColor(Color.parseColor("#8990D2"));
                     break;
                 case (2):
                     t11.setVisibility(View.VISIBLE);
+                    t11.setBackgroundColor(Color.parseColor("#D67B7B"));
                     break;
                 case (3):
                     t12.setVisibility(View.VISIBLE);
+                    t12.setBackgroundColor(Color.parseColor("#85CDBC"));
                     break;
                 case (4):
                     t2.setVisibility(View.VISIBLE);
+                    t2.setBackgroundColor(Color.parseColor("#F7EDBA"));
                     break;
                 case (5):
                     t3.setVisibility(View.VISIBLE);
+                    t3.setBackgroundColor(Color.parseColor("#D2DBE1"));
                     break;
                 case (6):
                     t4.setVisibility(View.VISIBLE);
+                    t4.setBackgroundColor(Color.parseColor("#D4C965"));
                     break;
                 case (7):
                     t5.setVisibility(View.VISIBLE);
+                    t5.setBackgroundColor(Color.parseColor("#94B27C"));
                     break;
 
             }
@@ -275,24 +285,54 @@ public class Time_Table extends AppCompatActivity {
                         break;
                     case (1):
                         t10.setText(data[y][day][b][i]);
+                        if(data[y][day][b][i]==data[y][day][b][i-1]){
+                            ColorDrawable cd=(ColorDrawable) t9.getBackground();
+                            String c="#"+Integer.toHexString(cd.getColor());
+                            t10.setBackgroundColor(Color.parseColor(c));
+                        }
                         break;
                     case (2):
                         t11.setText(data[y][day][b][i]);
+                        if(data[y][day][b][i]==data[y][day][b][i-1]){
+                            ColorDrawable cd=(ColorDrawable) t10.getBackground();
+                            String c="#"+Integer.toHexString(cd.getColor());
+                            t11.setBackgroundColor(Color.parseColor(c));
+                        }
                         break;
                     case (3):
                         t12.setText(data[y][day][b][i]);
+                        if(data[y][day][b][i]==data[y][day][b][i-1]){
+                            ColorDrawable cd=(ColorDrawable) t11.getBackground();
+                            String c="#"+Integer.toHexString(cd.getColor());
+                            t12.setBackgroundColor(Color.parseColor(c));
+                        }
                         break;
                     case (4):
                         t2.setText(data[y][day][b][i]);
                         break;
                     case (5):
                         t3.setText(data[y][day][b][i]);
+                        if(data[y][day][b][i]==data[y][day][b][i-1]){
+                            ColorDrawable cd=(ColorDrawable) t2.getBackground();
+                            String c="#"+Integer.toHexString(cd.getColor());
+                            t3.setBackgroundColor(Color.parseColor(c));
+                        }
                         break;
                     case (6):
                         t4.setText(data[y][day][b][i]);
+                        if(data[y][day][b][i]==data[y][day][b][i-1]){
+                            ColorDrawable cd=(ColorDrawable) t3.getBackground();
+                            String c="#"+Integer.toHexString(cd.getColor());
+                            t4.setBackgroundColor(Color.parseColor(c));
+                        }
                         break;
                     case (7):
                         t5.setText(data[y][day][b][i]);
+                        if(data[y][day][b][i]==data[y][day][b][i-1]){
+                            ColorDrawable cd=(ColorDrawable) t4.getBackground();
+                            String c="#"+Integer.toHexString(cd.getColor());
+                            t5.setBackgroundColor(Color.parseColor(c));
+                        }
                         break;
                 }
 
